@@ -1,4 +1,4 @@
-# django-toman
+# django_persian_currency
 
 A simple Django template tag for formatting Iranian currency values (تومان) into human-readable formats like:
 
@@ -20,15 +20,15 @@ A simple Django template tag for formatting Iranian currency values (تومان)
 ## 🚀 Installation
 
 ```bash
-pip install django-toman
+pip install django_persian_currency
 ```
 
-#### Add 'django_toman' to your INSTALLED_APPS in settings.py:
+#### Add 'django_persian_currency' to your INSTALLED_APPS in settings.py:
 
 ```python
 INSTALLED_APPS = [
     ...
-    'django_toman',
+    'django_persian_currency',
 ]
 ```
 
@@ -57,7 +57,7 @@ python manage.py shell
 
 ```python
 from django.template.defaultfilters import register
-from django_toman.templatetags.toman_filters import format_toman
+from django_persian_currency.templatetags.toman_filters import format_toman
 
 format_toman(1500000)  # Output: '1 میلیون تومان'
 ```
