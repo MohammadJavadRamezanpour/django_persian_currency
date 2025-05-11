@@ -1,10 +1,10 @@
-# django_persian_currency
+# Django Persian Currency
 
-A simple Django template tag for formatting Iranian currency values (تومان) into human-readable formats like:
+A simple Django app for formatting Iranian currency values (تومان) into human-readable formats like:
 
-- `1,000,000` → `1 میلیون تومان`
-- `500,000` → `500 هزار تومان`
-- `123,456` → `123,456 تومان`
+- `1,000,000` ← `1 میلیون تومان`
+- `500,000` ← `500 هزار تومان`
+- `123,456` ← `123,456 تومان`
 
 ---
 
