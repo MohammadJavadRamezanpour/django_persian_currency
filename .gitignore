@@ -1,0 +1,28 @@
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Virtual environments
+env/
+venv/
+.venv/
+
+# IDE / Editor configs
+.idea/
+.vscode/
+
+# System files
+.DS_Store
+
+# Secret files
+.env
+.pypirc
+
+manage.py
+config/
