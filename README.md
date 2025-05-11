@@ -57,9 +57,9 @@ python manage.py shell
 
 ```python
 from django.template.defaultfilters import register
-from django_persian_currency.templatetags.toman_filters import format_toman
+from django_persian_currency.templatetags.iran_money_display import toman_display
 
-format_toman(1500000)  # Output: '1 میلیون تومان'
+toman_display(1500000)  # Output: '1 میلیون تومان'
 ```
 
 ## 🤝 Contributing

@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='django_persian_currency',
-    version='0.1.1',
+    version='0.1.3',
     packages=find_packages(),
     include_package_data=True,
     description='A Django app to work with Iranian currency.',
