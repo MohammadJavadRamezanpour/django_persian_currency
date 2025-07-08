@@ -1,66 +1,89 @@
-# Django Persian Currency
+# 🏷️ Toman Display Template Tags for Django
 
-A simple Django template tag for formatting Iranian currency values (تومان) into human-readable formats like:
-
-- `1,000,000` → `1 میلیون تومان`
-- `500,000` → `500 هزار تومان`
-- `123,456` → `123,456 تومان`
-
----
+A simple Django template tag library to render integers as Persian currency strings, converting numbers into Persian digits and formatting values with appropriate units like "هزار", "میلیون", and "میلیارد".
 
 ## ✨ Features
 
-- Converts raw integers into **میلیارد**, **میلیون**, or **هزار تومان** where appropriate
-- Falls back to comma-separated `تومان` when not divisible
-- Safe default for invalid input
-- Optional support for Persian digits (you can easily enable it)
+- Converts integer values to human-readable Persian currency format.
+- Supports Persian digit conversion (e.g., `123` → `۱۲۳`).
+- Handles values in billions, millions, thousands, and ones.
+- Appends a customizable postfix (default: `تومان`).
+- Gracefully handles invalid or missing input.
 
 ---
 
 ## 🚀 Installation
 
-```bash
-pip install django_persian_currency
+Just drop the Python file into one of your Django app's `templatetags/` directories.
+
+For example:
+
+```
+myapp/
+├── templatetags/
+│   └── toman_display.py
 ```
 
-#### Add 'django_persian_currency' to your INSTALLED_APPS in settings.py:
+Make sure your app is listed in `INSTALLED_APPS` in your `settings.py`.
+
+---
+
+## 🧠 Available Filters
+
+### `toman_display`
+
+Formats numbers using Persian digits and currency breakdown.
+
+#### Example:
+
+```django
+{{ 12500000|toman_display }}
+```
+
+**Output:**
+```
+۱۲ میلیون و ۵۰۰ هزار تومان
+```
+
+#### With custom postfix:
+
+```django
+{{ 12500000|toman_display:"ریال" }}
+```
+
+**Output:**
+```
+۱۲ میلیون و ۵۰۰ هزار ریال
+```
+
+---
+
+### `toman_display_summary`
+
+This filter is defined but currently not implemented in the provided code. You can extend it to provide a short summary format if needed (e.g., only the largest unit, like "۱۲ میلیون").
+
+---
+
+### `to_persian_digits` (internal helper)
+
+Converts standard digits to Persian numerals.
 
 ```python
-INSTALLED_APPS = [
-    ...
-    'django_persian_currency',
-]
+to_persian_digits(123456)  # Output: '۱۲۳۴۵۶'
 ```
 
-## 🛠 Usage
+---
 
-In any Django template, first load the template tags:
+## 🧪 Error Handling
 
-```
-{% load toman_filters %}
-```
-
-Then use the format_toman filter:
+If a non-numeric or invalid value is passed, the output defaults to:
 
 ```
-{{ 1000000|format_toman }}  {# Output: 1 میلیون تومان #}
-{{ 725500|format_toman }}   {# Output: 725,500 تومان #}
-{{ 500000|format_toman }}   {# Output: 500 هزار تومان #}
+۰ تومان
 ```
 
-## 🧪 Testing
-You can test it inside a Django shell:
+---
 
-```
-python manage.py shell
-```
+## 📄 License
 
-```python
-from django.template.defaultfilters import register
-from django_persian_currency.templatetags.iran_money_display import toman_display
-
-toman_display(1500000)  # Output: '1 میلیون تومان'
-```
-
-## 🤝 Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+MIT – Feel free to use and modify.
