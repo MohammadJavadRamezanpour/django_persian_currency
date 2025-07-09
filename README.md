@@ -13,18 +13,11 @@ A simple Django template tag library to render integers as Persian currency stri
 ---
 
 ## 🚀 Installation
-
-Just drop the Python file into one of your Django app's `templatetags/` directories.
-
-For example:
-
 ```
-myapp/
-├── templatetags/
-│   └── toman_display.py
+pip install django-persian-currency
 ```
 
-Make sure your app is listed in `INSTALLED_APPS` in your `settings.py`.
+Make sure django_persian_currency is listed in `INSTALLED_APPS` in your `settings.py`.
 
 ---
 
